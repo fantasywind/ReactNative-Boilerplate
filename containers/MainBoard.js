@@ -90,6 +90,7 @@ class MainBoard extends Component {
 
 MainBoard.propTypes = {
   children: T.node,
+  isLogined: T.bool,
   toLoginPage: T.func,
 };
 
