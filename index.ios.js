@@ -27,7 +27,7 @@ import {
   AppRegistry,
 } from 'react-native';
 
-const memoryHistory = createMemoryHistory();
+const memoryHistory = createMemoryHistory('/login');
 
 export const store = createStore(reducers, {}, applyMiddleware(
   thunk,
@@ -36,13 +36,15 @@ export const store = createStore(reducers, {}, applyMiddleware(
 
 const history = syncHistoryWithStore(memoryHistory, store);
 
-import MainPage from './components/MainPage.js';
+import MainBoard from './containers/MainBoard.js';
+import LoginPage from './containers/LoginPage.js';
 
 function Entry() {
   return (
     <Provider store={store}>
       <Router history={history}>
-        <Route path="/" component={MainPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/" component={MainBoard} />
       </Router>
     </Provider>
   );
